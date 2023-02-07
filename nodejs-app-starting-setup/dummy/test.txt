@@ -1,0 +1,3 @@
+use docker cp to copy to/from running container!
+$ docker cp file container_name:/path/to/file ---> copy to container
+$ docker cp container_name:/path/to/file dest/ ---> copy from container
