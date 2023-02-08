@@ -10,7 +10,11 @@ COPY . .
 
 EXPOSE 80
 
-#Add `anonymous` volume. By now, location on the host machine is controlled by Docker
-VOLUME [ "/app/feedback" ]
+# Add `anonymous` volume. By now, location on the host machine is controlled by Docker
+# anonymous volume is automatically removed when we stop container to which it is assigned
+# VOLUME [ "/app/feedback" ]
 
-CMD [ "node", "server.js" ]
+# named volume will survive container shut down
+# $ docker run -d -p 80:80 --rm --name feedback-app -v feedback:/app/feedback feedback-node:volumes
+
+CMD [ "npm", "start" ]
