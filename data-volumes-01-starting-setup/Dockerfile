@@ -8,8 +8,11 @@ RUN npm install
 
 COPY . .
 
+# set deafult port as port 80
+ARG DEFAULT_PORT=80
+
 # Set up env variable for the port
-ENV PORT 80
+ENV PORT $DEFAULT_PORT
 
 EXPOSE $PORT
 
@@ -24,6 +27,5 @@ EXPOSE $PORT
 # add "ro" to make volume read-only
 # $ docker run -d -p 80:80 --rm --name feedback-app -v feedback:/app/feedback -v "%cd%":/app:ro -v /app/node_modules feedback-node:volumes
 # $ docker run -d -p 80:80 --rm --name feedback-app -v feedback:/app/feedback -v "%cd%":/app:ro -v /app/temp -v /app/node_modules feedback-node:volumes
-
 
 CMD [ "npm", "start" ]
