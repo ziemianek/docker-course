@@ -8,7 +8,10 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 80
+# Set up env variable for the port
+ENV PORT 80
+
+EXPOSE $PORT
 
 # Add `anonymous` volume. By now, location on the host machine is controlled by Docker
 # anonymous volume is automatically removed when we stop container to which it is assigned
