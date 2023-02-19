@@ -14,10 +14,10 @@ services:
       - mysql
   php:
     build:
-      context: ./docker
-      dockerfile: php.dockerfile
-    volumes:
-      - ./src:/var/www/html:delegated  # dalegated improves performance
+      context: .
+      dockerfile: docker/php.dockerfile
+    # volumes:
+    #   - ./src:/var/www/html:delegated  # dalegated improves performance
   mysql:
     image: mysql:5.7
     env_file:
