@@ -4,11 +4,14 @@ metadata:
   name: app-deployment
   labels:
     app: app
+    group: example
 spec:
   replicas: 3
   selector:
-    matchLabels:
-      app: app
+#    matchLabels:
+#      app: app
+    matchExpressions:
+      - { key: app, operator: In, values: ["app"] }
   template:
     metadata:
       labels:
