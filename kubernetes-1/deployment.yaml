@@ -8,10 +8,10 @@ metadata:
 spec:
   replicas: 3
   selector:
-#    matchLabels:
-#      app: app
-    matchExpressions:
-      - { key: app, operator: In, values: ["app"] }
+    matchLabels:
+      app: app
+#    matchExpressions:
+#      - {key: app, operator: In, values: ["app"]}
   template:
     metadata:
       labels:
@@ -20,4 +20,11 @@ spec:
       containers:
       - name: app
         image: mziemianek/kub-first-app
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+            # httpHeaders:
+          periodSeconds: 10
+          initialDelaySeconds: 5
 
