@@ -17,6 +17,12 @@ spec:
       containers:
         - name: story
           image: mziemianek/kub-data-demo:latest
+          env:
+            - name: STORY_FOLDER
+              valueFrom:
+                configMapKeyRef:
+                  name: data-store-env
+                  key: folder
           volumeMounts:
             - mountPath: /app/story
               name: story-volume
