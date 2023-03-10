@@ -15,5 +15,6 @@ spec:
       containers:
         - name: users
           image: mziemianek/kub-demo-users:latest
-        - name: auth
-          image: mziemianek/kub-demo-auth:latest
+          env:
+            - name: AUTH_ADDRESS
+              value: "10.103.189.113"
